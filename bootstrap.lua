@@ -1,19 +1,16 @@
 -- Standalone Lua 5.1 installer: curl .../bootstrap.lua | rex do -
 -- Runs locally through Rex; never reloads or overwrites an existing configuration.
 local function run(argv)
-	local result, err = rex.exec(
-		argv,
-		{
-			timeout = 120,
-			env = {
-				GIT_TERMINAL_PROMPT = "0",
-				GIT_DIR = false,
-				GIT_COMMON_DIR = false,
-				GIT_WORK_TREE = false,
-				GIT_INDEX_FILE = false,
-			},
-		}
-	)
+	local result, err = rex.exec(argv, {
+		timeout = 120,
+		env = {
+			GIT_TERMINAL_PROMPT = "0",
+			GIT_DIR = false,
+			GIT_COMMON_DIR = false,
+			GIT_WORK_TREE = false,
+			GIT_INDEX_FILE = false,
+		},
+	})
 	assert(result, err)
 	assert(
 		result.ok,

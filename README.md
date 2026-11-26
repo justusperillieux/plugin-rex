@@ -1,6 +1,8 @@
 # Plugin Rex
 
-<p><img src="assets/plugin-rex-logo-v2.png" alt="Plugin Rex — a T-rex with a large electrical plug for a tail on Rex's colorful gradient background" width="560"></p>
+[![CI](https://github.com/justusschock/plugin-rex/actions/workflows/ci.yml/badge.svg)](https://github.com/justusschock/plugin-rex/actions/workflows/ci.yml)
+
+<p><img src="assets/plugin-rex-logo-v2.png" alt="Plugin Rex — a T-rex with a large electrical plug for a tail on Rex's colorful gradient background" width="320"></p>
 
 **Plug more into Rex.**
 
@@ -358,6 +360,11 @@ describe the runtime constraints.
 | Event loading fails in `init.lua` | Events are available only to `rex do` scripts; keep action-declaring plugins eager. |
 
 ## Develop
+
+GitHub Actions runs Lua 5.1 formatting checks with StyLua 2.6.0 and the full
+manager/bootstrap test suite against Rex 0.1.0-preview.23 on Ubuntu 24.04.
+The Rex download and GitHub Actions dependencies are pinned; no repository
+secrets are needed beyond GitHub's built-in token.
 
 ```sh
 make check # validates manager actions and an eager plugin in real Rex config
