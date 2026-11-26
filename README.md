@@ -19,7 +19,9 @@ component, Neovim dependency, or LuaRocks requirement.
 - Rex on your `PATH`, with `rex.exec`, `rex.json`, Lua actions, and native
   `rex.ui` prompts. Tested with Rex 0.1.0-preview.23, control API revision 19.
 - Git 2.28+ and standard POSIX tools: `test`, `mkdir`, and `rmdir`.
-- `curl` for the bootstrap download, and access to your plugins' Git repositories.
+- Access to the manager and plugins' Git repositories. For a private GitHub
+  repository, use an authenticated [GitHub CLI](https://cli.github.com/) session.
+  Public bootstrap downloads can use `curl` instead.
 
 Run installation and management commands on the machine running the Rex server.
 Use the same `HOME`, `XDG_DATA_HOME`, and `XDG_CONFIG_HOME` values as that server.
@@ -29,11 +31,24 @@ Use the same `HOME`, `XDG_DATA_HOME`, and `XDG_CONFIG_HOME` values as that serve
 
 ### 1. Bootstrap
 
+For this private repository, authenticate with `gh auth login` if needed, then:
+
+```sh
+gh auth setup-git
+gh api repos/justusschock/plugin-rex/contents/bootstrap.lua \
+  --header 'Accept: application/vnd.github.raw+json' | rex do -
+```
+
+`gh auth setup-git` lets Git use your GitHub CLI credentials to clone the private
+repository. Neither the installer nor the manager stores your credentials.
+
+If the repository is public, the equivalent command needs only `curl`:
+
 ```sh
 curl -fsSL https://raw.githubusercontent.com/justusschock/plugin-rex/main/bootstrap.lua | rex do -
 ```
 
-This downloads and runs the [Lua bootstrap script](bootstrap.lua). It:
+These commands download and run the [Lua bootstrap script](bootstrap.lua). It:
 
 - Clones Plugin Rex into `~/.local/share/rex/plugin-rex`.
 - Creates `plugin-rex-plugins.lua` for your plugin list and `plugin-rex-setup.lua`
