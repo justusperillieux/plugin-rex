@@ -58,7 +58,7 @@ local config = absolute(os.getenv("XDG_CONFIG_HOME") or (assert(home, "HOME is u
 local init = absolute(os.getenv("REX_CONFIG") or (config .. "/rex/init.lua"))
 local config_dir = assert(init:match("^(.+)/[^/]+$"), "REX_CONFIG must name a file in a directory")
 local manager = data .. "/rex/plugin-rex"
-local source = (rex.args or {}).source or "https://github.com/justusschock/plugin-rex.git"
+local source = (rex.args or {}).source or "https://github.com/justusperillieux/plugin-rex.git"
 assert(
 	type(source) == "string" and source ~= "" and not source:find("%z"),
 	"source must be a Git URL or repository path"
@@ -84,9 +84,9 @@ write_new(
 	config_dir .. "/plugin-rex-plugins.lua",
 	[[-- Add plugins here, then run `rex config check` and `rex config reload`.
 return {
-  -- { "justusschock/treerex", opts = {} },
+  -- { "justusperillieux/treerex", opts = {} },
   -- {
-  --   "justusschock/tmplrex",
+  --   "justusperillieux/tmplrex",
   --   opts = { projects = { { name = "Work", cwd = "~/Developer/work" } } },
   -- },
 }

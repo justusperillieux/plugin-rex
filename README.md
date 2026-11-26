@@ -1,6 +1,6 @@
 # Plugin Rex
 
-[![CI](https://github.com/justusschock/plugin-rex/actions/workflows/ci.yml/badge.svg)](https://github.com/justusschock/plugin-rex/actions/workflows/ci.yml)
+[![CI](https://github.com/justusperillieux/plugin-rex/actions/workflows/ci.yml/badge.svg)](https://github.com/justusperillieux/plugin-rex/actions/workflows/ci.yml)
 
 <p><img src="assets/plugin-rex-logo-v2.png" alt="Plugin Rex — a T-rex with a large electrical plug for a tail on Rex's colorful gradient background" width="320"></p>
 
@@ -38,7 +38,7 @@ For this private repository, authenticate with `gh auth login` if needed, then:
 
 ```sh
 gh auth setup-git
-gh api repos/justusschock/plugin-rex/contents/bootstrap.lua \
+gh api repos/justusperillieux/plugin-rex/contents/bootstrap.lua \
   --header 'Accept: application/vnd.github.raw+json' | rex do -
 ```
 
@@ -48,7 +48,7 @@ repository. Neither the installer nor the manager stores your credentials.
 If the repository is public, the equivalent command needs only `curl`:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/justusschock/plugin-rex/main/bootstrap.lua | rex do -
+curl -fsSL https://raw.githubusercontent.com/justusperillieux/plugin-rex/main/bootstrap.lua | rex do -
 ```
 
 These commands download and run the [Lua bootstrap script](bootstrap.lua). It:
@@ -73,9 +73,9 @@ Edit `~/.config/rex/plugin-rex-plugins.lua`. For example:
 
 ```lua
 return {
-  { "justusschock/treerex", opts = {} },
+  { "justusperillieux/treerex", opts = {} },
   {
-    "justusschock/tmplrex",
+    "justusperillieux/tmplrex",
     opts = {
       projects = {
         { name = "Work", cwd = "~/Developer/work" },
@@ -146,7 +146,7 @@ Plugins execute with the same privileges as your Rex configuration.
 To manage installation yourself, clone the repository:
 
 ```sh
-git clone https://github.com/justusschock/plugin-rex.git \
+git clone https://github.com/justusperillieux/plugin-rex.git \
   "${XDG_DATA_HOME:-$HOME/.local/share}/rex/plugin-rex"
 ```
 
@@ -158,7 +158,7 @@ local manager = data .. "/rex/plugin-rex"
 package.path = manager .. "/?.lua;" .. manager .. "/?/init.lua;" .. package.path
 
 require("plugin-rex").setup({
-  { "justusschock/treerex", opts = {} },
+  { "justusperillieux/treerex", opts = {} },
 })
 ```
 

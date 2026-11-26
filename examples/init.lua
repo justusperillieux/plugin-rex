@@ -5,9 +5,9 @@ require("plugin-rex").setup({}, { install_missing = false })
 
 -- In your own init.lua, after bootstrapping Plugin Rex:
 -- require("plugin-rex").setup({
---   { "justusschock/treerex", opts = {} },
+--   { "justusperillieux/treerex", opts = {} },
 --   {
---     "justusschock/tmplrex",
+--     "justusperillieux/tmplrex",
 --     opts = { projects = { { name = "Work", cwd = "~/Developer/work" } } },
 --   },
 -- })
