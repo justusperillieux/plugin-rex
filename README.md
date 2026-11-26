@@ -4,8 +4,9 @@
 
 **Plug more into Rex.**
 
-A pure Lua plugin manager for [Rex](https://www.superlogical.com/rex), with a
-[lazy.nvim-style spec API](https://lazy.folke.io/spec). Declare plugins in Lua,
+A pure Lua plugin manager for [Rex](https://www.superlogical.com/rex), inspired by
+[lazy.nvim](https://github.com/folke/lazy.nvim) and its
+[declarative plugin specs](https://lazy.folke.io/spec). Declare plugins in Lua,
 install them from Git, load their dependencies, and save exact versions in a
 lockfile. Manage everything from Rex's native command palette or CLI.
 
